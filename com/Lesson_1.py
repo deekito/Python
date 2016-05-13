@@ -1,6 +1,6 @@
 # ---coding:utf-8---
 
-# Lesson 1 数据类型
+# Lesson_1 数据类型
 
 print 456789 + 0x12fd2
 
