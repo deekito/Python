@@ -1,28 +1,18 @@
-# -*- coding: utf-8 -*-
+#-*-coding:utf8-*-
 
-'''这是一首古诗'''
+def fun(f):
+    def fun_1(*args):
+        if len(args) == 0:
+            return 0
+        for val in args:
+            if not isinstance(val, int):
+                return 0
+        return f(args)
+    return fun_1
 
-print '''静夜思
+def getSum(*args):
+    return sum(*args)
 
-床前明月光，
-疑是地上霜。
-举头望明月，
-低头思故乡。'''
+g = fun(getSum)
 
-gushi = '''
-   鹅鹅鹅
-
-鹅鹅鹅，
-曲项向天歌
-白毛浮绿水
-红掌拨清波'''
-
-print gushi
-
-print (3 + 4) / 2.0
-
-print '\n'
-
-a = True
-print a and 'a=T' or 'a=F'
-
+print g(1,2,3,'3')

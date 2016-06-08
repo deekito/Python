@@ -4,7 +4,9 @@ import random
 
 
 class NumberGuess():
-    flag = True
+    __flag = True
+
+    @classmethod
 
     def __init__(self, number):
         self.__number = number
@@ -12,12 +14,21 @@ class NumberGuess():
     def getnumber(self):
         return self.__number
 
+    @property
+    def flag(self):
+        return self.__flag
+
+    @__flag.setter
+    def flag(self, value):
+        if value:
+            self.__flag = True
+        else:
+            self.__flag = False
+
 
 N = NumberGuess(random.randint(0, 100))
 
-print N.getNumber()
-
-while (NumberGuess.flag):
+while (NumberGuess.flag()):
     userGuess = int(raw_input('请输入一个0～100的数字:'))
     if userGuess > int(N.getnumber()):
         print '你猜的数字太大了'
@@ -27,4 +38,5 @@ while (NumberGuess.flag):
         continue
     else:
         print '你猜对了'
-        NumberGuess.flag = False
+        NumberGuess.flag(False)
+
